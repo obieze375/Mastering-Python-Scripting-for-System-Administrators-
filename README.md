@@ -32,6 +32,67 @@ The code will look like the following:
  >>> 3 * 'hi' + 'hello'
 'hihihihello' 
 ```
+# Using Pip 
+
+Basic usage
+The standard packaging tools are all designed to be used from the command line.
+
+The following command will install the latest version of a module and its dependencies from the Python Package Index:
+
+~~~
+python -m pip install SomePackage
+~~~
+
+Note For POSIX users (including macOS and Linux users), the examples in this guide assume the use of a virtual environment.
+For Windows users, the examples in this guide assume that the option to adjust the system PATH environment variable was selected when installing Python.
+
+It’s also possible to specify an exact or minimum version directly on the command line. When using comparator operators such as >, < or some other special character which get interpreted by shell, the package name and the version should be enclosed within double quotes:
+
+~~~
+python -m pip install SomePackage==1.0.4    # specific version
+
+python -m pip install "SomePackage>=1.0.4"  # minimum version
+~~~
+
+Normally, if a suitable module is already installed, attempting to install it again will have no effect. Upgrading existing modules must be requested explicitly:
+
+~~~
+python -m pip install --upgrade SomePackage
+~~~
+
+# Running Python 
+
+~~~
+python3 example.py
+~~~
+
+# Example of main containing code from another function
+
+
+~~~~
+
+from time import sleep
+
+print("This is my file to demonstrate best practices.")
+
+def process_data(data):
+    print("Beginning data processing...")
+    modified_data = data + " that has been modified"
+    sleep(3)
+    print("Data processing finished.")
+    return modified_data
+
+def main():
+    data = "My data read from the Web"
+    print(data)
+    modified_data = process_data(data)
+    print(modified_data)
+
+if __name__ == "__main__":
+    main()
+
+~~~~
+
 
 **Following is what you need for this book:**
 This book would be ideal for users with some basic understanding of Python programming and who are interested in scaling their programming skills to command line scripting and system administration.  Prior knowledge of Python would be necessary.
